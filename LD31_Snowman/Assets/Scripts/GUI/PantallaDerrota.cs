@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -14,8 +14,8 @@ public class PantallaDerrota : MonoBehaviour {
 	{
 		int puntajeActual =
 			GameObject.Find ("ManejadorDePuntaje")
-				.GetComponent<ManejadorDePuntaje> ()
-				.getPuntajeActual ();
+				.GetComponent<ScoreManager> ()
+				.getCurrentScore ();
 
 		etiqueta.text = puntajeActual.ToString ();
 	}
