@@ -7,7 +7,7 @@ public class MainCharacterCollider : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.transform.tag == "Enemy") {
-			Debug.Log("is Damaged");
+			//Debug.Log("is Damaged");
 			scoreManager.GetComponent<ScoreManager>().reportScore();
 			GetComponent<Animator>().SetBool("is Dead", true);
 			audio.Play();
@@ -20,7 +20,7 @@ public class MainCharacterCollider : MonoBehaviour {
 		}
 
 
-		Debug.Log ("collided againts : "+coll.transform.name);
+		//Debug.Log ("collided againts : "+coll.transform.name);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
