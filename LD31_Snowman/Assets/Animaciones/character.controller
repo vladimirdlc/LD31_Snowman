@@ -5,16 +5,16 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: personaje
+  m_Name: character
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: estaCorriendo
+  - m_Name: isRunning
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: estaMuerto
+  - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -45,7 +45,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: estaCorriendo
+    m_ConditionEvent: isRunning
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -65,7 +65,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: estaMuerto
+    m_ConditionEvent: isDead
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -85,7 +85,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: estaMuerto
+    m_ConditionEvent: isDead
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -105,7 +105,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: estaCorriendo
+    m_ConditionEvent: isRunning
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -132,7 +132,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: muerte
+  m_Name: dead
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -147,7 +147,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: correr
+  m_Name: run
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -178,13 +178,13 @@ StateMachine:
       - {fileID: 110100000}
       - {fileID: 110118944}
     data:
-      first: {fileID: 110247354}
-      second: []
-    data:
       first: {fileID: 110278770}
       second:
       - {fileID: 110169036}
       - {fileID: 110109576}
+    data:
+      first: {fileID: 110247354}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 72, y: -84, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
