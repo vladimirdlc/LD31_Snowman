@@ -24,17 +24,18 @@ public class MainCharacterCollider : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		//if (other.name == "floor") {
 		Debug.Log ("Collition");
 		GetComponent<MainCharacterMovement>().canJump = true;
-		//}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
+		Debug.Log ("Not Collition");
 		GetComponent<MainCharacterMovement>().canJump = false;
 	}
 
-
+	void OnTriggerStay2D(Collider2D other) {
+		GetComponent<MainCharacterMovement>().canJump = true;
+	}
 
 
 }

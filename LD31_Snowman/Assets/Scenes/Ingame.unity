@@ -505,7 +505,7 @@ GameObject:
   - 61: {fileID: 514376360}
   - 114: {fileID: 514376361}
   - 82: {fileID: 514376362}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Snowman
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &514376358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1655714917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f32ab93c99dafdd4a8aa095e21aa5e2f, type: 3}
   m_Name: 
