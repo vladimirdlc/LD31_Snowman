@@ -6,7 +6,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public float speedX = 4;
 	public float speedY = 20;
 	public bool isFrozen;
-	public bool direction = false;
+	public bool goLeft = false;
+	public float frozenTime = 10.0f;
 	private bool isStill;
 
 	// Use this for initialization
@@ -18,9 +19,9 @@ public class EnemyBehavior : MonoBehaviour {
 	void Update () {
 		//float speedXTemp = speedX;
 
-		if (isStill) return;
+		if (isStill || isFrozen) return;
 
-		if (direction) {
+		if (goLeft) {
 				rigidbody2D.velocity = new Vector2(-speedX, rigidbody2D.velocity.y);
 				transform.localScale = new Vector3(-1, 1, 1);
 			}
@@ -33,11 +34,30 @@ public class EnemyBehavior : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		// Change directions if collides againts anything but player
-		if (other.tag == "Player") isStill = true;
-		else direction = !direction;
+		switch (other.tag) {
+		case "Player":
+			isStill = true;
+			break;
+		case "Hook": 
+			if (!isFrozen) {
+				isFrozen = true;
+				Invoke("unfrozen",frozenTime);
+			}
+
+			break;
+		default: goLeft = !goLeft;
+			break;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
+
 		isStill = false;
+		if (other.tag == "Player") goLeft = !goLeft;
 	}
+
+	void unfrozen() {
+		isFrozen = false;
+	}
+	
 }
