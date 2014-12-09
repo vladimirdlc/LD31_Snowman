@@ -11,9 +11,13 @@ public class FreedomGift : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
+            audio.Play();
             hatRenderer.sprite = giftHat;
             range.transform.localScale = range.transform.localScale * rangeMultiplier;
-            Destroy(gameObject);
+            collider2D.enabled = false;
+            renderer.enabled = false;
+            Destroy(this);
+            Destroy(gameObject, 3);
         }
             
 

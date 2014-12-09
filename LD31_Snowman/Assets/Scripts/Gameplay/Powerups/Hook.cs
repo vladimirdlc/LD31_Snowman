@@ -77,6 +77,8 @@ public class Hook : MonoBehaviour {
             player.rigidbody2D.velocity = transform.up * playerPushForce;
         }
 
+        audio.Play();
+
         isRetracting = true;
     }
 }

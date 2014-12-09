@@ -5,9 +5,11 @@ public class MainCharacterMovement : MonoBehaviour {
 	public float speedX = 4;
 	public float speedY = 20;
 	public bool canJump;
+    public static bool hasKey;
 
 	void Start()
 	{
+        hasKey = false;
 		canJump = false;
 	}
 
@@ -31,11 +33,12 @@ public class MainCharacterMovement : MonoBehaviour {
 		}	
 
 		if(canJump)
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.U))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
-			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speedY);
-			canJump = false;
-		}
+                audio.Play();
+			    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speedY);
+			    canJump = false;
+		    }
 
 		if (rigidbody2D.velocity.x != 0) {
 			GetComponent<Animator>().SetBool("isRunning", true);
