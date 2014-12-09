@@ -19,17 +19,20 @@ public class MainCharacterMovement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftShift))
 						speedX *= 1.5f;
 
-		if (Input.GetKey (KeyCode.RightArrow)) {
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
 			rigidbody2D.velocity = new Vector2(speedX, rigidbody2D.velocity.y);
 			transform.localScale = new Vector3(1, 1, 1);
-		}	
-		if (Input.GetKey (KeyCode.LeftArrow)) {
+		}
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
 			rigidbody2D.velocity = new Vector2(-speedX, rigidbody2D.velocity.y);
 			transform.localScale = new Vector3(-1, 1, 1);
 		}	
 
 		if(canJump)
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKey(KeyCode.U))
+            {
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, speedY);
 			canJump = false;
 		}

@@ -20,7 +20,7 @@ public class Hook : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                rigidbody2D.AddForce(transform.up * force);
+                rigidbody2D.velocity = transform.up * force;
                 currentRetractTime = 0;
                 isFlying = true;
                 collider2D.enabled = true;
@@ -68,7 +68,15 @@ public class Hook : MonoBehaviour {
     {
         rigidbody2D.velocity = Vector3.zero;
         collider2D.enabled = false;
-        player.rigidbody2D.AddForce(transform.up * playerPushForce);
+        if (coll.gameObject.tag == "Enemy")
+        {
+
+        }
+        else
+        {
+            player.rigidbody2D.velocity = transform.up * playerPushForce;
+        }
+
         isRetracting = true;
     }
 }
